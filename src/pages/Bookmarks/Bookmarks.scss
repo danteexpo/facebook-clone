@@ -1,0 +1,27 @@
+.bookmark-container {
+	padding-top: 10px;
+}
+
+.bookmark-item {
+	cursor: pointer;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	border-radius: 8px;
+	transition: background 500ms;
+	padding: 0.5rem;
+	&:hover {
+		background-color: #525357;
+	}
+}
+
+.bookmark-item .bookmark-icon {
+	margin-right: 0.5rem;
+	&:hover {
+		filter: none;
+	}
+}
+
+.bookmark-item .bookmark-icon img {
+	width: 28px;
+}

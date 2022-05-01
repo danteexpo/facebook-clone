@@ -1,0 +1,236 @@
+$bg: #242526;
+$bg-accent: #484a4d;
+$text-color: #dadce1;
+$nav-size: 60px;
+$border: 1px solid #474a4d;
+$border-radius: 8px;
+$speed: 500ms;
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	color: $text-color;
+}
+
+/* Top Navigation Bar */
+
+/* <nav> */
+.navbar {
+	position: sticky;
+	top: 0;
+	height: $nav-size;
+	background-color: $bg;
+	padding: 0 1rem;
+	border-bottom: $border;
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+}
+
+.searchbar-container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1rem;
+	.link-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		.facebook-img {
+			width: 42px;
+			cursor: pointer;
+		}
+		.burger-img {
+			width: 24px;
+			padding: 0.875rem;
+			border-radius: 8px;
+			cursor: pointer;
+			&:hover {
+				background-color: #484a4d;
+			}
+		}
+	}
+	.burger-active {
+		outline: 2px solid #0080ff;
+		border-radius: 8px;
+	}
+}
+
+@media (min-width: 1100px) {
+	.searchbar-container {
+		.link-container:last-child {
+			display: none;
+		}
+		.burger-active {
+			display: none;
+		}
+	}
+}
+
+.searchbar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #484a4d;
+	border-radius: 9999px;
+	padding: 0.875rem;
+	img {
+		width: 16px;
+	}
+	p {
+		display: none;
+		color: #dadce1;
+		font-size: 0.875rem;
+		padding-right: 4rem;
+	}
+}
+
+.main-doc {
+	display: none;
+	img {
+		width: 32px;
+	}
+}
+
+@media (min-width: 1100px) {
+	.main-doc {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		place-items: center;
+		.main-doc-first {
+			width: 100%;
+			height: 100%;
+			border-bottom: 2px solid #0080ff;
+			display: flex;
+			justify-content: center;
+		}
+	}
+}
+
+/* <ul> */
+.navbar-nav {
+	grid-column: 3;
+	max-width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+/* <li> */
+.nav-item {
+	width: calc($nav-size * 0.8);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Icon Button */
+.icon-button {
+	cursor: pointer;
+	$button-size: calc($nav-size * 0.5);
+	width: $button-size;
+	height: $button-size;
+	background-color: #484a4d;
+	border-radius: 50%;
+	padding: 5px;
+	margin: 2px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: filter 300ms;
+	&:hover {
+		filter: brightness(1.2);
+	}
+}
+
+.icon-button svg {
+	fill: $text-color;
+	width: 20px;
+	height: 20px;
+}
+
+/* Dropdown Menu */
+
+.dropdown {
+	position: absolute;
+	top: 58px;
+	width: 200px;
+	transform: translateX(-45%);
+	background-color: $bg;
+	border: $border;
+	border-radius: $border-radius;
+	padding: 1rem;
+	overflow: hidden;
+	transition: height $speed ease;
+}
+
+@media (min-width: 1100px) {
+	.dropdown {
+		width: 300px;
+	}
+}
+
+.menu {
+	width: 100%;
+}
+
+.menu-item {
+	cursor: pointer;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	border-radius: $border-radius;
+	transition: background $speed;
+	padding: 0.5rem;
+	&:hover {
+		background-color: #525357;
+	}
+}
+
+.menu-item .icon-button {
+	margin-right: 0.5rem;
+	&:hover {
+		filter: none;
+	}
+}
+
+.icon-right {
+	margin-left: auto;
+}
+
+/* CSSTransition classes  */
+.menu-primary-enter {
+	position: absolute;
+	transform: translateX(-110%);
+}
+
+.menu-primary-enter-active {
+	transform: translateX(0%);
+	transition: all $speed ease;
+}
+
+.menu-primary-exit {
+	position: absolute;
+}
+
+.menu-primary-exit-active {
+	transform: translateX(-110%);
+	transition: all $speed ease;
+}
+
+.menu-secondary-enter {
+	transform: translateX(110%);
+}
+
+.menu-secondary-enter-active {
+	transform: translateX(0%);
+	transition: all $speed ease;
+}
+
+.menu-secondary-exit {
+}
+
+.menu-secondary-exit-active {
+	transform: translateX(110%);
+	transition: all $speed ease;
+}
