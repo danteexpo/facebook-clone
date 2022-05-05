@@ -1,14 +1,14 @@
 # Facebook Clone
 
-Proyecto realizado con React, Firebase, Sass & Context API.
+Project made with React, Firebase, Sass and Context API.
 
-## Instalación
+## Installation
 
 ```bash
 npm install
 ```
 
-## Ejecución
+## Start
 
 ```bash
 npm start
