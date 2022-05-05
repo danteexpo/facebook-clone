@@ -1,8 +1,12 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/auth";
-import "firebase/storage";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import { getStorage } from "firebase/storage";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
 	apiKey: "AIzaSyBJg1DREC1ZFmLPEPUMRupjrzYwjCriAkg",
 	authDomain: "facebook-clone-d9bea.firebaseapp.com",
@@ -12,16 +16,10 @@ const firebaseConfig = {
 	appId: "1:551571516547:web:b340405f8bc6faed8f3fb6",
 };
 
-// init firebase app
-firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+const firebaseApp = initializeApp(firebaseConfig);
+const db = getFirestore();
+const auth = getAuth();
+const storage = getStorage(firebaseApp);
 
-// init services
-const projectFirestore = firebase.firestore();
-const projectAuth = firebase.auth();
-const projectStorage = firebase.storage();
-
-// init timestamp
-const timestamp = firebase.firestore.Timestamp;
-
-// export everything
-export { projectFirestore, projectAuth, projectStorage, timestamp };
+export { db, auth, storage };

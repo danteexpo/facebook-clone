@@ -1,5 +1,6 @@
 import React from "react";
-import Bookmark from "./Bookmark";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import Bookmark from "../../components/Bookmark/Bookmark";
 import "./Bookmarks.scss";
 
 const marks = [
@@ -82,11 +83,15 @@ const marks = [
 ];
 
 const Bookmarks = () => {
+	const { user } = useAuthContext();
+
 	return (
 		<div className="bookmark-container">
 			<div className="bookmark-item">
-				<span className="bookmark-icon"></span>
-				<p>Dante Expósito</p>
+				<span className="bookmark-icon">
+					{user.photoURL && <img src={user.photoURL} alt="" />}
+				</span>
+				<p>{user.displayName}</p>
 			</div>
 			<Bookmark marks={marks} />
 		</div>
