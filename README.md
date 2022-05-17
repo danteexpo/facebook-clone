@@ -2,14 +2,6 @@
 
 Project made with React, Firebase, Sass and Context API.
 
-## Installation
+## Link
 
-```bash
-npm install
-```
-
-## Start
-
-```bash
-npm start
-```
+[Facebook Clone](https://de-facebook-clone.netlify.app/).
