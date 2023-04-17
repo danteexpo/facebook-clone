@@ -6,7 +6,6 @@ import { useAuthContext } from "../../../../hooks/useAuthContext";
 import { db, storage } from "../../../../firebase/config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import "./AddPost.scss";
 
 const AddPost = () => {
 	const [input, setInput] = useState("");
@@ -65,8 +64,8 @@ const AddPost = () => {
 	};
 
 	return (
-		<div className={`${file ? "add-container-photo" : "add-container"}`}>
-			<div className="first-row">
+		<div className={`my-4 mx-auto min-h-[124px] min-w-[400px] max-w-[600px] rounded-lg bg-[#242526] text-[#dadce1] grid ${file ? "grid-rows-[1fr_1fr_1px_1fr]" : "grid-rows-[1fr_1px_1fr]"}`}>
+			<div className="flex justify-start items-center gap-2 py-2 px-0 pl-2">
 				{user.photoURL && (
 					<img
 						src={user.photoURL}
@@ -78,6 +77,7 @@ const AddPost = () => {
 					onChange={e => setInput(e.target.value)}
 					value={input}
 					placeholder={`What are you thinking about, ${firstName}?`}
+					className="w-full bg-[#484a4d] p-3 mr-2 text-base text-[#dadce1] border-none rounded-full cursor-pointer placeholder:text-[#dadce1] focus:outline-none hover:bg-[#525357]"
 				/>
 			</div>
 
@@ -99,27 +99,27 @@ const AddPost = () => {
 				</div>
 			)}
 
-			<hr className="hr" />
+			<hr className="border-b-[1px] border-b-[#484a4d]" />
 
-			<div className="second-row">
-				<span>
-					<img src={CameraPost} alt="" />
-					<p>Live Video</p>
+			<div className="grid grid-cols-3 place-items-center">
+				<span className="flex justify-center items-center p-3 rounded-lg cursor-pointer hover:bg-[#484a4d]">
+					<img src={CameraPost} alt="" className="w-7 mr-3" />
+					<p className="text-sm font-bold">Live Video</p>
 				</span>
-				<span>
-					<label htmlFor="file-upload">
-						<img src={ImagePost} alt="" />
-						<p>Photo/Video</p>
+				<span className="flex justify-center items-center p-3 rounded-lg cursor-pointer hover:bg-[#484a4d]">
+					<label htmlFor="file-upload" className="flex items-center cursor-pointer">
+						<img src={ImagePost} alt="" className="w-7 mr-3" />
+						<p className="text-sm font-bold">Photo/Video</p>
 					</label>
-					<input id="file-upload" type="file" onChange={handleFileChange} />
+					<input id="file-upload" type="file" onChange={handleFileChange} className="hidden" />
 				</span>
 				{isPending && (
-					<button className="post-btn" disabled>
+					<button className="border-none text-white text-sm font-bold py-3 px-12 rounded-full cursor-not-allowed bg-[#484a4d]" disabled>
 						Loading...
 					</button>
 				)}
 				{!isPending && (
-					<button className="post-btn-active" onClick={handleSubmit}>
+					<button className="border-none text-white text-sm font-bold py-3 px-12 rounded-full cursor-pointer bg-[#0080ff]" onClick={handleSubmit}>
 						Post
 					</button>
 				)}
