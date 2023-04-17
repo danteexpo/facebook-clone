@@ -1,9 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Dropdown from "./components/Dropdown/Dropdown";
 import Home from "./pages/Home/Home";
 import Bookmarks from "./pages/Bookmarks/Bookmarks";
 import Login from "./pages/Login/Login";
-import { Navigate } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
 
 function App() {

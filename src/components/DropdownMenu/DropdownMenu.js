@@ -21,10 +21,11 @@ export default function DropdownMenu() {
 	const [activeMenu, setActiveMenu] = useState("main");
 	const [menuHeight, setMenuHeight] = useState(null);
 	const dropdownRef = useRef(null);
+	console.log(dropdownRef);
 	const { dispatch, user } = useAuthContext();
 
 	useEffect(() => {
-		setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
+		setMenuHeight(dropdownRef.current?.firstChild.offsetHeight + 32);
 	}, []);
 
 	function calcHeight(el) {
