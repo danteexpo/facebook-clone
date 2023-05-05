@@ -6,7 +6,7 @@ import { ReactComponent as BellIcon } from "./icons/bell.svg";
 import { ReactComponent as MessengerIcon } from "./icons/messenger.svg";
 import { ReactComponent as CaretIcon } from "./icons/caret.svg";
 import { ReactComponent as PlusIcon } from "./icons/plus.svg";
-import "./Dropdown.css";
+import "./Dropdown.scss";
 
 const Dropdown = () => {
 	return (

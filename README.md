@@ -1,6 +1,6 @@
 # Facebook Clone
 
-Project made with React, Firebase, TailwindCSS and Context API.
+Project made with React, Firebase, Sass and Context API.
 
 ## Link
 
